@@ -1,4 +1,4 @@
- JaFR_IJCAI2022
+# JaFR_IJCAI2022
 This is our Pytorch implementation of JaFR. 
 
 **How Does Frequency Bias Affect the Robustness of Neural Image Classifiers against Common Corruption and Adversarial Perturbations?**<br>
@@ -32,9 +32,10 @@ After training, the COCON block's weights will be saved in `models/model_folder_
 `--attack` : type of adversarial training
 `--dataset`: dataset to train model on  
 `--low_freq_bias_lambda`: weight of JaFR in training    
+`--epochs`: Number of training epochs      
 
 
-## Evaluation
+## Adversarial Example Evaluation
 Evaluate model with adversarial examples (PGD with eps value of 8):  
 ```bash
 python eval.py --model_dir=models/model_folder_name --eps 8 --eval_results_filename=eval_results.txt
@@ -46,6 +47,21 @@ Evaluation output text file (`eval_results.txt`) will be saved in `models/model_
 `--eps` : eps of PGD/FGSM attack
 `--dataset`: type of image dataset   
 `--pgd_loss_func`: type of loss function used to compute adversarial examples    
+
+
+## Corruption Evaluation
+Evaluate model with CIFAR-10-C corruption examples:  
+```bash
+python eval_cifar10c.py --model_dir=models/model_folder_name
+```  
+
+
+Evaluate model with CIFAR-10-C corruption examples:  
+```bash
+python eval_cifar100c.py --model_dir=models/model_folder_name
+```  
+Evaluation output text file (`eval_results.txt`) will be saved in `models/model_folder_name`.
+
 
 
 ## Citation

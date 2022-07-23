@@ -1,0 +1,11 @@
+.DS_Store
+
+# compiled python files
+*.pyc
+
+.idea/
+logs
+
+data
+models
+analysis
